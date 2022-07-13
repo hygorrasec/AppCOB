@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS atletas(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    idade INT NOT NULL,
+    altura FLOAT NOT NULL,
+    peso FLOAT NOT NULL,
+    modalidade VARCHAR(100) NOT NULL,
+    data TIMESTAMP NOT NULL
+)
