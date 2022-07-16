@@ -1,7 +1,8 @@
 from django.urls import path
 
-from competicao.views import home
+from . import views
 
 urlpatterns = [
-    path('', home),
+    path('', views.home, name='homepage'),
+    path('modalidade/<str:name>', views.modalidade, name='modalidade')
 ]
