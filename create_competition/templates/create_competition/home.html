@@ -10,7 +10,12 @@
                 <h2>Modalidade</h2>
                 <div class="mb-2 row">
                     <div class="col-2">Nome:</div>
-                    <div class="col-10"><input class="form-control" type="text" id="name_competition" name="name_competition"></div>
+                    <div class="col-10">
+                        <select class="form-select" name="name_competition" id="name_competition">
+                            <option value="100m_rasos">100m rasos</option>
+                            <option value="lancamento_de_dardo">Lançamento de Dardo</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-2 row">
                     <div class="col-2">Local:</div>
@@ -18,7 +23,7 @@
                 </div>
                 <div class="mb-2 row">
                     <div class="col-2">Data/Hora:</div>
-                    <div class="col-10"><input class="form-control" type="date" id="created_at" name="created_at"></div>
+                    <div class="col-10"><input class="form-control" type="datetime-local" id="created_at" name="created_at"></div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -47,34 +52,25 @@
         <ul class="list-athlete">
             <li class="item-athlete">
                 <div class="row">
-                    <div class="col">Nome</div>
-                    <div class="col">Modalidade</div>
-                    <div class="col">
-                        <span><i class="fa-solid fa-trash"></i></span>
-                        <span><i class="fa-solid fa-pen-to-square"></i></span>
-                    </div>
+                    <div class="col">NOME</div>
+                    <div class="col">MODALIDADE</div>
+                    <div class="col">LOCAL</div>
+                    <div class="col">AÇÃO</div>
                 </div>
             </li>
+            {% for athlete in athletes %}
             <li class="item-athlete">
                 <div class="row">
-                    <div class="col">Nome</div>
-                    <div class="col">Modalidade</div>
+                    <div class="col">{{athlete.name_athlete}}</div>
+                    <div class="col"><a href="/ranking/{{athlete.name_competition}}">{{athlete.name_competition}}</a></div>
+                    <div class="col">{{athlete.place_competition}}</div>
                     <div class="col">
                         <span><i class="fa-solid fa-trash"></i></span>
                         <span><i class="fa-solid fa-pen-to-square"></i></span>
                     </div>
                 </div>
             </li>
-            <li class="item-athlete">
-                <div class="row">
-                    <div class="col">Nome</div>
-                    <div class="col">Modalidade</div>
-                    <div class="col">
-                        <span><i class="fa-solid fa-trash"></i></span>
-                        <span><i class="fa-solid fa-pen-to-square"></i></span>
-                    </div>
-                </div>
-            </li>
+            {% endfor %}
         </ul>
     </div>
     <br>
