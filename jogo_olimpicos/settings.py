@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'create',
+    'create_competition',
+    'register_result',
     'ranking',
-    'register',
     'fontawesomefree'
 ]
 

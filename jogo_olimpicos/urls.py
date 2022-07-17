@@ -19,5 +19,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('ranking/', include('ranking.urls'))
+    path('ranking/', include('ranking.urls')),
+    path('create_competition/', include('create_competition.urls')),
+    path('register_result/', include('register_result.urls')),
 ]

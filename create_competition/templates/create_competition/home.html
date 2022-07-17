@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}CRIAR COMPETIÇÃO{% endblock title %}
+{% block content %}
+    <center><h3>CRIAR COMPETIÇÃO</h3></center>
+    <p>Criar uma competição [nome, local e data/hora da disputa], já informando os atletas participantes [nome, idade, altura e peso]</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Modalidade</h2>
+                <div class="mb-2 row">
+                    <div class="col-2">Nome:</div>
+                    <div class="col-10"><input class="form-control" type="text" id="name_competition" name="name_competition"></div>
+                </div>
+                <div class="mb-2 row">
+                    <div class="col-2">Local:</div>
+                    <div class="col-10"><input class="form-control" type="text" id="place" name="place"></div>
+                </div>
+                <div class="mb-2 row">
+                    <div class="col-2">Data/Hora:</div>
+                    <div class="col-10"><input class="form-control" type="date" id="date" name="date"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Atleta</h2>
+                <div class="mb-2 row">
+                    <div class="col-2">Nome:</div>
+                    <div class="col-10"><input class="form-control" type="text" id="name_athlete" name="name_athlete"></div>
+                </div>
+                <div class="mb-2 row">
+                    <div class="col-2">Idade:</div>
+                    <div class="col-10"><input class="form-control" type="number" id="age" name="age"></div>
+                </div>
+                <div class="mb-2 row">
+                    <div class="col-2">Altura:</div>
+                    <div class="col-10"><input class="form-control" type="number" id="height" name="height"></div>
+                </div>
+                <div class="mb-2 row">
+                    <div class="col-2">Peso:</div>
+                    <div class="col-10"><input class="form-control" type="number" id="weight" name="weight"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container list-div">
+        <ul class="list-athlete">
+            <li class="item-athlete">
+                <div class="row">
+                    <div class="col">Nome</div>
+                    <div class="col">Modalidade</div>
+                    <div class="col">
+                        <span><i class="fa-solid fa-trash"></i></span>
+                        <span><i class="fa-solid fa-pen-to-square"></i></span>
+                    </div>
+                </div>
+            </li>
+            <li class="item-athlete">
+                <div class="row">
+                    <div class="col">Nome</div>
+                    <div class="col">Modalidade</div>
+                    <div class="col">
+                        <span><i class="fa-solid fa-trash"></i></span>
+                        <span><i class="fa-solid fa-pen-to-square"></i></span>
+                    </div>
+                </div>
+            </li>
+            <li class="item-athlete">
+                <div class="row">
+                    <div class="col">Nome</div>
+                    <div class="col">Modalidade</div>
+                    <div class="col">
+                        <span><i class="fa-solid fa-trash"></i></span>
+                        <span><i class="fa-solid fa-pen-to-square"></i></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 add-athlete">
+                <i class="fa-solid fa-plus"></i> Adicionar Atleta
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 add-competition">
+                <i class="fa-solid fa-plus"></i> Criar Competição
+            </div>
+        </div>
+    </div>
+{% endblock content %}
