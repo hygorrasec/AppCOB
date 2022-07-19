@@ -9,12 +9,10 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import os
+
 from pathlib import Path
 
-from dotenv import load_dotenv
-
-load_dotenv()
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=p%dnlnzzsam7v$3jnk@j0jvfd6f036516@qwt%m5-mb=eo63j'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,11 +83,11 @@ WSGI_APPLICATION = 'jogo_olimpicos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATA'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASS'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT'),
+        'NAME': config('MY_DATA', default='olimpiadas'),
+        'USER': config('MY_USER', default='postgres'),
+        'PASSWORD': config('MY_PASS', default='hygor123'),
+        'HOST': config('MY_HOST', default='localhost'),
+        'PORT': config('MY_PORT', default='5432')
     }
 }
 
