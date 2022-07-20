@@ -1,4 +1,10 @@
+# from datetime import datetime, timedelta
+
 from django.db import models
+
+# def return_date_time():
+#     now = datetime.now()
+#     return now + timedelta(days=1)
 
 
 class CreateCompetition(models.Model):
@@ -47,14 +53,7 @@ class CreateCompetition(models.Model):
         choices=place_competition_op
     )
 
-    # date = (
-    #     ('2022-07-30 10:30:00', '1'),
-    #     ('2022-07-30 10:30:00', '2')
-    # )
-    # date_competition = models.DateTimeField(
-    #     max_length=255,
-    #     choices=date
-    # )
+    # date_competition = models.DateTimeField(auto_now_add=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 

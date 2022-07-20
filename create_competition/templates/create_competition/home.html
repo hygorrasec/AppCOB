@@ -94,24 +94,24 @@
             <ul class="list-athlete">
                 <li class="item-athlete">
                     <div class="row">
-                        <div class="col">DATA INSCRIÇÃO</div>
                         <div class="col">NOME</div>
                         <div class="col">MODALIDADE</div>
                         <div class="col">LOCAL</div>
-                        <div class="col">AÇÃO</div>
+                        <div class="col">DATA</div>
+                        {% comment %} <div class="col">AÇÃO</div> {% endcomment %}
                     </div>
                 </li>
                 {% for athlete in athletes %}
                 <li class="item-athlete">
                     <div class="row">
-                        <div class="col">{{athlete.created_at}}</div>
                         <div class="col">{{athlete.name_athlete}}</div>
                         <div class="col">{{athlete.name_competition}}</div>
                         <div class="col">{{athlete.place_competition}}</div>
-                        <div class="col">
+                        <div class="col">----</div>
+                        {% comment %} <div class="col">
                             <span><i class="fa-solid fa-trash"></i></span>
                             <span><i class="fa-solid fa-pen-to-square"></i></span>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </li>
                 {% endfor %}
@@ -122,11 +122,8 @@
             <div class="row">
                 <input type="submit" class="col-12 add-athlete" value="Adicionar Atleta">
             </div>
-            <div class="row">
-                <div class="col-12 add-competition">
-                    <i class="fa-solid fa-plus"></i> Criar Competição
-                </div>
-            </div>
         </div>
     </form>
+    <br>
+    <br>
 {% endblock content %}
