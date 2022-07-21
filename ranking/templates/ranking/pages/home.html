@@ -1,15 +1,35 @@
-{% include 'ranking/partials/head.html' %}
-{% include 'global/partials/nav.html' %}
-<div class="container">
-{% include 'ranking/partials/header.html' %}
-{% include 'ranking/partials/content.html' %}
+{% extends 'global/pages/base.html' %}
+{% load static %}
+
+{% block title %}RANKING{% endblock title %}
+
+{% block content %}
+<header>
+    <center><h1>RANKING</h1></center>
+</header>
+<div class="offset-1 col-10 list-div">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+            <a href="1">
+                <div class="row">
+                    <img class="img-ranking" src="{% static 'ranking/imgs/img_100m_rasos.png' %}" alt="">
+                </div>
+                <div class="row">
+                    <p>100m rasos</p>
+                </div>
+            </a>
+        </div>
+        <div class="col col-lg-2">
+            <a href="2">
+                <div class="row">
+                    <img class="img-ranking" src="{% static 'ranking/imgs/img_lancamento_de_dardo.png' %}" alt="">
+                </div>
+                <div class="row">
+                    <p>Lancamento de Dardo</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-9 search"></div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-{% include 'global/partials/footer.html' %}
+{% endblock content %}

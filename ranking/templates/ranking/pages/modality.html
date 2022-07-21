@@ -1,9 +1,10 @@
-{% include 'ranking/partials/head.html' %}
-{% include 'global/partials/nav.html' %}
-<div class="container">
-{% include 'ranking/partials/header.html' %}
-<div class="row">
-    <h1>Modalidade:</h1>
-    <h3>{{ name }} <!--<i class="fa-solid fa-person-swimming"></i>--></h3>
-</div>
-{% include 'global/partials/footer.html' %}
+{% extends 'global/pages/base.html' %}
+
+{% block title %}MODALIDADE {{ id }}{% endblock title %}
+
+{% block content %}
+<header>
+    <center><h1>MODALIDADE</h1></center>
+</header>
+<h3>{{ id }}</h3>
+{% endblock content %}
