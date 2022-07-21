@@ -14,12 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
+
+
+def teste(request):
+    print('TESTE OK!')
+    return HttpResponse('TESTE OK!')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('ranking/', include('ranking.urls')),
     path('create_competition/', include('create_competition.urls')),
     path('register_result/', include('register_result.urls')),
+    path('ranking/', include('ranking.urls')),
+    path('teste/', teste),
 ]
