@@ -10,7 +10,7 @@
 <div class="offset-1 col-10 list-div">
     <div class="row justify-content-md-center">
         <div class="col col-lg-2">
-            <a href="1">
+            <a href="{% url 'ranking:modality' 1 %}">
                 <div class="row">
                     <img class="img-ranking" src="{% static 'ranking/imgs/img_100m_rasos.png' %}" alt="">
                 </div>
@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="col col-lg-2">
-            <a href="2">
+            <a href="{% url 'ranking:modality' 2 %}">
                 <div class="row">
                     <img class="img-ranking" src="{% static 'ranking/imgs/img_lancamento_de_dardo.png' %}" alt="">
                 </div>

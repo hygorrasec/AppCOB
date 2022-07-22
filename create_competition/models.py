@@ -1,17 +1,27 @@
-# from datetime import datetime, timedelta
-
 from django.db import models
 
-# def return_date_time():
-#     now = datetime.now()
-#     return now + timedelta(days=1)
+
+class Competition(models.Model):
+
+    names_competition = (
+        ('100m rasos', '100m rasos'),
+        ('Lançamento de Dardo', 'Lançamento de Dardo')
+    )
+    competition = models.CharField(
+        max_length=60,
+        choices=names_competition
+    )
+
+    def __str__(self):
+        return self.competition
 
 
 class CreateCompetition(models.Model):
 
-    name_competition_op = (
-        ('100m rasos', '1'),
-        ('Lançamento de Dardo', '2')
+    name_athlete = models.CharField(max_length=255)
+
+    name_competition = models.ForeignKey(
+        Competition, on_delete=models.SET_NULL, null=True
     )
 
     place_competition_op = (
@@ -44,25 +54,32 @@ class CreateCompetition(models.Model):
         ('Tocantins', 'TO')
     )
 
-    name_competition = models.CharField(
-        max_length=255,
-        choices=name_competition_op
-    )
     place_competition = models.CharField(
         max_length=255,
         choices=place_competition_op
     )
 
-    # date_competition = models.DateTimeField(auto_now_add=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    name_athlete = models.CharField(max_length=255)
     age_athlete = models.CharField(max_length=25)
     height_athlete = models.CharField(max_length=25)
     weight_athlete = models.CharField(max_length=25)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     # updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name_athlete
+
+
+class DatabaseCompetition(models.Model):
+
+    id_athlete = models.ForeignKey(
+        CreateCompetition, on_delete=models.SET_NULL, null=True
+    )
+    name_competition = models.ForeignKey(
+        Competition, on_delete=models.SET_NULL, null=True
+    )
+    meters = models.FloatField()
+    time = models.FloatField()
+
+    def __str__(self):
+        return self.id_athlete

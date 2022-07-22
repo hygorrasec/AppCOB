@@ -7,4 +7,3 @@ class CreateForm(forms.ModelForm):
     class Meta:
         model = CreateCompetition
         fields = "__all__"
-        print(fields)

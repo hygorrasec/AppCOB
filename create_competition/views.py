@@ -23,10 +23,19 @@ def create_competition(request):
             print('APRESENTOU UM ERRO!')
 
     else:
-        form = CreateForm()
+        # form = CreateForm()
         # print(f'FORM: {form}')
         getAthletes = CreateCompetition.objects.all()  # .order_by('-created_at')
+
+        count_1 = 0
+        count_2 = 0
+
         for i in getAthletes:
+            if i.name_competition == '1':
+                count_1 += 1
+            elif i.name_competition == '2':
+                count_2 += 1
+            print(f'ID: {i.id}')
             print(f'ATLETA: {i.name_athlete}')
             print(f'COMPETIÇÃO: {i.name_competition}')
             print(f'IDADE: {i.age_athlete}')
@@ -34,8 +43,12 @@ def create_competition(request):
             print(f'PESO: {i.weight_athlete}')
             print(f'DATA CADASTRO: {i.created_at}')
 
+        print(f'TOTAL 100m rasos: {count_1}')
+        print(f'TOTAL Lançamento de Dardo: {count_2}')
+
         return render(request, 'create_competition/pages/home.html',
                       context={
+                          'if_competition_ok': False,
                           'athletes': getAthletes,
-                          'form': form
+                          #   'form': form
                       })

@@ -7,12 +7,15 @@
     <center><h1>CRIAR COMPETIÇÃO</h1></center>
     <p>Criar uma competição [nome, local e data/hora da disputa], já informando os atletas participantes [nome, idade, altura e peso]</p>
     <div class="container">
+        {% if if_competition_ok %}
         <div class="row">
             <div class="col-12 status-competition-on">Cadastro aberto para 100m rasos.</div>
         </div>
+        {% else %}
         <div class="row">
             <div class="col-12 status-competition-off">Cadastro finalizado para Lançamento de Dardo.</div>
         </div>
+        {% endif %}
     </div>
 </header>
 <br>
@@ -109,10 +112,6 @@
                     <div class="col">{{i.name_competition}}</div>
                     <div class="col">{{i.place_competition}}</div>
                     <div class="col">----</div>
-                    {% comment %} <div class="col">
-                        <span><i class="fa-solid fa-trash"></i></span>
-                        <span><i class="fa-solid fa-pen-to-square"></i></span>
-                    </div> {% endcomment %}
                 </div>
             </li>
             {% endfor %}
@@ -126,4 +125,6 @@
         </div>
     </div>
 </form>
+<br>
+<br>
 {% endblock content %}
