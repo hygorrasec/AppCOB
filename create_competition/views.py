@@ -1,9 +1,9 @@
-from distutils.ccompiler import new_compiler
+from distutils.ccompiler import new_compiler  # noqa: F401
 
 from django.shortcuts import render
 
 from .forms import CreateForm
-from .models import Competition, CreateCompetition
+from .models import Competition, CreateCompetition  # noqa: F401
 
 
 def create_competition(request):
@@ -15,7 +15,7 @@ def create_competition(request):
             print('ENTROU!')
             form.save()
             form = CreateForm()
-            getAthletes = CreateCompetition.objects.all()  # .order_by('-created_at')
+            getAthletes = CreateCompetition.objects.all()  # .order_by('-created_at')  # noqa: E501
             return render(request, 'create_competition/pages/home.html',
                           context={
                               'athletes': getAthletes,
@@ -39,9 +39,9 @@ def create_competition(request):
 
         # Atualizando uma competição:
         # new_competition = Competition.objects.create(
-        #     competition='Isso foi criado via objects.create para ser alterado.')
+        #     competition='Isso foi criado via objects.create para ser alterado.')  # noqa: E501
         # print(
-        #     f'Imprimindo para verificar a informação antes de ser alterada: {new_competition}')
+        #     f'Imprimindo para verificar a informação antes de ser alterada: {new_competition}')  # noqa: E501
         # new_competition.competition = 'TEXTO ALTERADO!!!!!!!!'
         # new_competition.save()
 
@@ -61,8 +61,8 @@ def create_competition(request):
         # print('Foi deletado!')
         # print(outra_competition2)
 
-        # Filtrando e deletando uma competição: (importante usar o filter no lugar do get pois não apresenta erro)
-        # competition_filter = Competition.objects.filter(id=21)
+        # Filtrando e deletando uma competição: (importante usar o filter no lugar do get pois não apresenta erro)  # noqa: E501
+        # competition_filter = Competition.objects.filter(id=6)
         # print(f'ENCONTROU: {competition_filter}')
         # competition_filter.first()
         # competition_filter.first().delete()
@@ -90,7 +90,7 @@ def create_competition(request):
 
         return render(request, 'create_competition/pages/home.html',
                       context={
-                          'if_competition_ok': False,
+                          'if_competition_ok': True,
                           'athletes': getAthletes,
                           #   'form': form
                       })

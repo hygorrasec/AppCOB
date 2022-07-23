@@ -53,6 +53,15 @@ body {
     margin-right: 25px;
 }
 
+.add-athlete {
+    background-color: #345de2;
+    margin-top: 5px;;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
 .list-div {
     padding: 0;
 }
