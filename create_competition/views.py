@@ -25,7 +25,7 @@ def create_competition(request):
             print('APRESENTOU UM ERRO!')
 
     else:
-        # form = CreateForm()
+        form = CreateForm()
         # print(f'FORM: {form}')
 
         # Criando nova competição como teste (modo 1):
@@ -92,5 +92,5 @@ def create_competition(request):
                       context={
                           'if_competition_ok': True,
                           'athletes': getAthletes,
-                          #   'form': form
+                          'form': form
                       })

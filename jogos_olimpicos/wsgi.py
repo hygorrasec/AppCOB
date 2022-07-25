@@ -1,5 +1,5 @@
 """
-WSGI config for jogo_olimpicos project.
+WSGI config for jogos_olimpicos project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jogo_olimpicos.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jogos_olimpicos.settings')
 
 application = get_wsgi_application()
