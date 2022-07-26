@@ -4,6 +4,7 @@
 
 {% block content %}
 <center><h1>CRIAR COMPETIÇÃO</h1></center>
+{% comment %} <span>{{ request.session.number }}</span> {% endcomment %}
 <p>Criar uma competição [nome, local e data/hora da disputa], já informando os atletas participantes [nome, idade, altura e peso]</p>
 {% if if_competition_ok is not True %}
 <header>
@@ -15,79 +16,22 @@
 </header>
 {% else %}
 <br>
-<form method="POST">
+<form method="POST" action="{% url 'create_competition:created' %}">
     {% csrf_token %}
     {% comment %} {{ form.as_p }} {% endcomment %}
     <div class="row">
+        {% for field in form %}
         <div class="col-md-6">
-            <h2>Atleta</h2>
             <div class="mb-2 row">
-                <div class="col-2">Nome:</div>
-                <div class="col-10"><input class="form-control" type="text" id="name_athlete" name="name_athlete" required></div>
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <p>{{ field.help_text }}</p>
+                {% endif %}
             </div>
-            <div class="mb-2 row">
-                <div class="col-2">Idade:</div>
-                <div class="col-10"><input class="form-control" type="number" id="age_athlete" name="age_athlete" required></div>
-            </div>
-            <div class="mb-2 row">
-                <div class="col-2">Altura:</div>
-                <div class="col-10"><input class="form-control" type="number" id="height_athlete" name="height_athlete" required></div>
-            </div>
-            <div class="mb-2 row">
-                <div class="col-2">Peso:</div>
-                <div class="col-10"><input class="form-control" type="number" id="weight_athlete" name="weight_athlete" required></div>
-            </div>
+            {{ fields.errors }}
         </div>
-        <div class="col-md-6">
-            <h2>Modalidade</h2>
-            <div class="mb-2 row">
-                <div class="col-2">Nome:</div>
-                <div class="col-10">
-                    <select class="form-select" name="name_competition" id="name_competition" required>
-                        <option value="100m_rasos">100m rasos</option>
-                        <option value="lancamento_de_dardo">Lançamento de Dardo</option>
-                    </select>
-                </div>
-            </div>
-            <div class="mb-2 row">
-                <div class="col-2">Local:</div>
-                <div class="col-10">
-                    <select class="form-select" name="place_competition" id="place_competition" required>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
-                    </select>
-                </div>
-            </div>
-            <div class="mb-2 row">
-                <div class="col-2">Data/Hora:</div>
-                <div class="col-10"><input class="form-control" type="datetime-local" id="created_at" name="created_at" value="2022-07-30T10:30" disabled></div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
     <br>
     <div class="container list-div">

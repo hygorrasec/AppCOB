@@ -91,3 +91,7 @@ footer p {
     top: 15%;
     position: relative;
 }
+
+.form-control {
+    appearance: auto !important;
+}
