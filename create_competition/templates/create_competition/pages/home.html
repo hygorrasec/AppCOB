@@ -4,7 +4,7 @@
 
 {% block content %}
 <center><h1>CRIAR COMPETIÇÃO</h1></center>
-{% comment %} <span>{{ request.session.number }}</span> {% endcomment %}
+{% include 'global/partials/messages.html' %}
 <p>Criar uma competição [nome, local e data/hora da disputa], já informando os atletas participantes [nome, idade, altura e peso]</p>
 {% if if_competition_ok is not True %}
 <header>
