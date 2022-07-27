@@ -95,3 +95,10 @@ footer p {
 .form-control {
     appearance: auto !important;
 }
+
+form ul.errorlist {
+    font-size: 15px;
+    color: red;
+    list-style: none;
+    font-style: italic;
+}

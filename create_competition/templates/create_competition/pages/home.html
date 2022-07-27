@@ -28,8 +28,8 @@
                 {% if field.help_text %}
                     <p>{{ field.help_text }}</p>
                 {% endif %}
+                {{ field.errors }}
             </div>
-            {{ fields.errors }}
         </div>
         {% endfor %}
     </div>
@@ -64,6 +64,7 @@
             <input type="submit" class="col-12 add-athlete" value="Adicionar Atleta">
         </div>
     </div>
+    {{ field.errors }}
 </form>
 {% endif %}
 <br>
